@@ -4,7 +4,7 @@ import Range from './Range/Range';
 import Image from './Image/Image';
 import Filter from './Filter/Filter';
 
-const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink}) => {
+const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink, onReset}) => {
       
       return (
             <div>
@@ -59,6 +59,15 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink}
                                     onMouse={onMouse}
                                     min={1}
                                     max={50} />
+
+                              <Row>
+                                    <Col lg={12} sm={24}>
+                                          <Button onClick={onReset}>&nbsp;Reset&nbsp;</Button>
+                                    </Col>
+                                    <Col lg={12} sm={24}>
+                                          <Button>Download</Button>
+                                    </Col>
+                              </Row>
 
                               <Row>
                                     <Col span={24} style={{marginTop: '2rem'}}>

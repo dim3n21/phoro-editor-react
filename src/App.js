@@ -53,16 +53,29 @@ class App extends Component {
     this.setState({
       ...newState
     })
+  }
 
-    e.target.value = "";
+  onReset = () => {
+    let newState = {...this.state}
+    newState.settings = {
+      contrast: 1,
+      hue: 1,
+      brightness: 100,
+      saturate: 100,
+      sepia: 1,
+      blur: 0
+    }
 
+    this.setState({
+      settings: newState.settings
+    })
   }
 
   render() {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink}/>
+      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset}/>
     </div>
     )
     
