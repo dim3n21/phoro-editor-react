@@ -9,14 +9,14 @@ import Content from './containers/Content/Content';
 class App extends Component {
   
   state = {
-    image: 'https://images.unsplash.com/photo-1562617407-2734f156481c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+    image: 'https://images.unsplash.com/flagged/photo-1565241758499-3bf9d63d9094?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     name: '',
     settings : {
-      contrast: 20,
-      hue: 0,
-      brightness: 0,
-      saturate: 0,
-      sepia: 0
+      contrast: 1,
+      hue: 1,
+      brightness: 100,
+      saturate: 100,
+      sepia: 1
     }
   }
 

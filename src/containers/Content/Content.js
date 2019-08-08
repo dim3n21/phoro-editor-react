@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import Range from './Range/Range';
 import Image from './Image/Image';
+import Filter from './Filter/Filter';
 
 const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
       return (
@@ -13,25 +14,33 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
                                     onChange={onChange}
                                     name={'contrast'}
                                     onAfterChange={onAfterChange}
-                                    onMouse={onMouse} /> 
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={5} /> 
                               <Range 
                                     curVal={settings.hue}
                                     onChange={onChange}
                                     name={'hue'}
                                     onAfterChange={onAfterChange}
-                                    onMouse={onMouse} />
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={360} />
                               <Range 
                                     curVal={settings.brightness}
                                     onChange={onChange}
                                     name={'brightness'}
                                     onAfterChange={onAfterChange}
-                                    onMouse={onMouse} />
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={200} />
                               <Range 
                                     curVal={settings.saturate}
                                     onChange={onChange}
                                     name={'saturate'}
                                     onAfterChange={onAfterChange}
-                                    onMouse={onMouse} />
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={300} />
                               
                               <Range 
                                     curVal={settings.sepia}
@@ -41,7 +50,12 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
                                     onMouse={onMouse} />
                         </Col>
 
-                        <Col lg={18} md={12} sm={24}> <Image src={image} /></Col>
+                        <Col lg={18} md={12} sm={24}>
+                              <Filter settings={settings}>
+                                    <Image src={image} />
+                              </Filter>
+                              
+                        </Col>
                   </Row>   
             </div>
       );
