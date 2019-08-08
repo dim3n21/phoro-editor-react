@@ -14,9 +14,9 @@
 }
 
 .settings {
-  padding: 4rem 2rem 4rem 2rem;
+  padding: 4rem 2rem 0 2rem;
   background-color: #5e5e5e;
-  height: 100vh;
+  height: 92vh;
 }
 
 .setting {
@@ -26,4 +26,12 @@
 .setting_name {
   font-size: 1rem;
   color: #fff;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 92vh;
+  background-size: cover;
+  background-position: center;
 }

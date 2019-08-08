@@ -5,11 +5,11 @@ import './App.css';
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
 
-import { Slider, InputNumber, Row, Col } from 'antd';
 
 class App extends Component {
   
   state = {
+    image: 'https://images.unsplash.com/photo-1562617407-2734f156481c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
     name: '',
     settings : {
       contrast: 20,
@@ -46,7 +46,7 @@ class App extends Component {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse}/>
+      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse}/>
     </div>
     )
     

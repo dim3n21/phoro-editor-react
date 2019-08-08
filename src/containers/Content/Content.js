@@ -1,8 +1,9 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import Range from './Range/Range';
+import Image from './Image/Image';
 
-const Content = ({settings, onChange, onAfterChange, onMouse}) => {
+const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
       return (
             <div>
                   <Row>
@@ -40,7 +41,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse}) => {
                                     onMouse={onMouse} />
                         </Col>
 
-                        <Col lg={18} md={12} sm={24}>main image</Col>
+                        <Col lg={18} md={12} sm={24}> <Image src={image} /></Col>
                   </Row>   
             </div>
       );
