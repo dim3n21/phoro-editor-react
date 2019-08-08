@@ -43,11 +43,26 @@ class App extends Component {
     })
   }
 
+  submitLink = (e) => {
+    e.preventDefault();
+    console.log(e.target.value)
+    const imgLink = e.target.value;
+    let newState = {...this.state};
+    newState.image = imgLink;
+
+    this.setState({
+      ...newState
+    })
+
+    e.target.value = "";
+
+  }
+
   render() {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse}/>
+      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink}/>
     </div>
     )
     

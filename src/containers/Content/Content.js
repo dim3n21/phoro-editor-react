@@ -1,10 +1,11 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Input, Button, Form } from 'antd';
 import Range from './Range/Range';
 import Image from './Image/Image';
 import Filter from './Filter/Filter';
 
-const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
+const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink}) => {
+      
       return (
             <div>
                   <Row>
@@ -58,6 +59,16 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
                                     onMouse={onMouse}
                                     min={1}
                                     max={50} />
+
+                              <Row>
+                                    <Col span={24} style={{marginTop: '2rem'}}>
+                                         <Input
+                                                placeholder="link to image"
+                                                allowClear
+                                                onPressEnter={(e) => {submitLink(e)}}
+                                                />
+                                    </Col>
+                              </Row>
                         </Col>
 
                         <Col lg={18} md={12} sm={24}>

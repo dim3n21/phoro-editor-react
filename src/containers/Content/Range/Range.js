@@ -5,9 +5,22 @@ const Range = ({curVal, onChange, name, onAfterChange, onMouse, min, max}) => {
       
       return (
             <div className="setting" onMouseOver={() => onMouse(name)}>
-                   <p className="setting_name">{name}</p>
                    <Row>
-                         <Col span={20}>
+                         <Col span={12} align="right" style={{paddingRight: "1rem"}}>
+                              <p className="setting_name">{name}</p>
+                         </Col>
+                         <Col span={6} align="left">
+                         <InputNumber
+                                    min={min}
+                                    max={max}
+                                    value={curVal}
+                                    onChange={onChange} />
+                         </Col>
+                   </Row>
+                   
+                   
+                   <Row>
+                         <Col span={24}>
                               <Slider
                                     min={min}
                                     max={max}
@@ -15,13 +28,7 @@ const Range = ({curVal, onChange, name, onAfterChange, onMouse, min, max}) => {
                                     onChange={onChange}
                                     onAfterChange={onAfterChange}/>
                          </Col>
-                         <Col span={4}>
-                              <InputNumber
-                                    min={min}
-                                    max={max}
-                                    value={curVal}
-                                    onChange={onChange} />
-                         </Col>
+                         
                    </Row>
             </div>
       );
