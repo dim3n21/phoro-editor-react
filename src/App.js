@@ -16,7 +16,8 @@ class App extends Component {
       hue: 1,
       brightness: 100,
       saturate: 100,
-      sepia: 1
+      sepia: 1,
+      blur: 0
     }
   }
 

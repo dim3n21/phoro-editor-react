@@ -47,7 +47,17 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse}) => {
                                     onChange={onChange}
                                     name={'sepia'}
                                     onAfterChange={onAfterChange}
-                                    onMouse={onMouse} />
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={100} />
+                              <Range 
+                                    curVal={settings.blur}
+                                    onChange={onChange}
+                                    name={'blur'}
+                                    onAfterChange={onAfterChange}
+                                    onMouse={onMouse}
+                                    min={1}
+                                    max={50} />
                         </Col>
 
                         <Col lg={18} md={12} sm={24}>
