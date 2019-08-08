@@ -19,28 +19,25 @@ class App extends Component {
     }
   }
 
-  onChange = value => {
+  onChange = (value) => {
 
     let newState = {...this.state};
-
-    newState.settings = {
-      contrast: value,
-      hue: 0,
-      brightness: 0,
-      saturate: 0,
-      sepia: 0
-    }
+    newState.settings.contrast = value;
 
     this.setState({
      settings: newState.settings
       })
   };
 
+   onAfterChange = (value) => {
+    console.log('onAfterChange: ', value);
+  }
+
   render() {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} onChange={this.onChange} />
+      <Content settings={this.state.settings} onChange={this.onChange} onAfterChange={this.onAfterChange} />
     </div>
     )
     
