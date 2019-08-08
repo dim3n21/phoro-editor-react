@@ -10,6 +10,7 @@ import { Slider, InputNumber, Row, Col } from 'antd';
 class App extends Component {
   
   state = {
+    name: '',
     settings : {
       contrast: 20,
       hue: 0,
@@ -20,9 +21,8 @@ class App extends Component {
   }
 
   onChange = (value) => {
-
     let newState = {...this.state};
-    newState.settings.contrast = value;
+    newState.settings[newState.name] = value;
 
     this.setState({
      settings: newState.settings
@@ -33,11 +33,20 @@ class App extends Component {
     console.log('onAfterChange: ', value);
   }
 
+  onMouse = (value) => {
+    let newState = {...this.state};
+    newState.name = value;
+
+    this.setState({
+      name: newState.name
+    })
+  }
+
   render() {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} onChange={this.onChange} onAfterChange={this.onAfterChange} />
+      <Content settings={this.state.settings} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse}/>
     </div>
     )
     

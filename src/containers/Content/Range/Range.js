@@ -1,12 +1,12 @@
 import React from 'react';
 import { Slider } from 'antd';
 
-const Range = ({contrast, onChange, name, onAfterChange}) => {
+const Range = ({curVal, onChange, name, onAfterChange, onMouse}) => {
       
       return (
-            <div>
-                   <p>{name}</p>
-                   <Slider min={0} max={100} defaultValue={contrast} onChange={onChange} onAfterChange={onAfterChange}/>
+            <div className="setting" onMouseOver={() => onMouse(name)}>
+                   <p className="setting_name">{name}</p>
+                   <Slider min={0} max={100} defaultValue={curVal} onChange={onChange} onAfterChange={onAfterChange}/>
             </div>
       );
 };
