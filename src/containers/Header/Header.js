@@ -1,11 +1,11 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import {Row, Col} from 'antd';
 
-const Header = ( {title}) => {
+const Header = ({title}) => {
       return (
             <div className="header">
                   <Row>
-                        <Col span={24}>{title}</Col>  
+                              <Col span={24}>{title}</Col>  
                   </Row>
             </div>
       );

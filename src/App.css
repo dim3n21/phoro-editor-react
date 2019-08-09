@@ -47,3 +47,21 @@
   background-size: cover;
   background-position: center;
 }
+
+.footer {
+  display: block;
+  background-color: #5e5e5e;
+  padding: 1.5rem;
+}
+
+.footer_icon {
+  display: inline-block;
+  width: 2rem;
+  margin-left: 1rem;
+  color: #fa1c1f;
+}
+
+.footer_text {
+  font-size: 1rem;
+  color: #fa1c1f;
+}

@@ -4,10 +4,11 @@ import './App.css';
 
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
+import Footer from './containers/Footer/Footer';
 
 
 class App extends Component {
-  
+
   state = {
     image: 'https://images.unsplash.com/flagged/photo-1565241758499-3bf9d63d9094?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     name: '',
@@ -84,8 +85,9 @@ class App extends Component {
   render() {
     return (
     <div className="App">
-      <Header title="photo editor" />
-      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
+        <Header title="photo editor" />
+        <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
+        <Footer />
     </div>
     )
     

@@ -85,7 +85,7 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink,
                               <Filter settings={settings} implementFilter={()=>{}}>
                                     <Image src={image} type="hero" />
                               </Filter>
-                              <FilterList image={image} implementFilter={implementFilter}/>
+                              <FilterList image={image} implementFilter={implementFilter} />
                               
                         </Col>
                   </Row>   
