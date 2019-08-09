@@ -71,11 +71,21 @@ class App extends Component {
     })
   }
 
+  implementFilter = (settings) => {
+    let newState = {...this.state}
+    newState.settings = settings;
+
+    this.setState({
+      ...newState
+    })
+
+  }
+
   render() {
     return (
     <div className="App">
       <Header title="photo editor" />
-      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset}/>
+      <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
     </div>
     )
     

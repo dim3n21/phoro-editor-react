@@ -1,10 +1,11 @@
 import React from 'react';
-import { Row, Col, Input, Button, Form } from 'antd';
+import { Row, Col, Input, Button } from 'antd';
 import Range from './Range/Range';
 import Image from './Image/Image';
 import Filter from './Filter/Filter';
+import FilterList from './FilterList/FilterList';
 
-const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink, onReset}) => {
+const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink, onReset, implementFilter}) => {
       
       return (
             <div>
@@ -81,9 +82,10 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink,
                         </Col>
 
                         <Col lg={18} md={12} sm={24}>
-                              <Filter settings={settings}>
-                                    <Image src={image} />
+                              <Filter settings={settings} implementFilter={()=>{}}>
+                                    <Image src={image} type="hero" />
                               </Filter>
+                              <FilterList image={image} implementFilter={implementFilter}/>
                               
                         </Col>
                   </Row>   

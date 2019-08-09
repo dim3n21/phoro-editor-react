@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Image = ({src}) => {
+const Image = ({src, type}) => {
       const style = { backgroundImage: `url(${src})`};
 
       return (
-            <div className="image" style={style}>
+            <div className={type === "hero" ? "image_hero" : "image_filter"} style={style}>
                   
             </div>
       );
