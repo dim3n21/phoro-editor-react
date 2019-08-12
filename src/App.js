@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import AuthContext from './context/auth-context';
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
 import Footer from './containers/Footer/Footer';
@@ -86,7 +87,9 @@ class App extends Component {
     return (
     <div className="App">
         <Header title="photo editor" />
-        <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
+        <AuthContext.Provider value={{image: this.state.image}} >
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
+        </AuthContext.Provider>
         <Footer />
     </div>
     )
