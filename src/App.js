@@ -117,6 +117,17 @@ class App extends Component {
     val.clear()
   }
 
+  updateImage = (image) => {
+    let newState = {...this.state};
+    newState.image = image;
+    newState.showSearchImages = false;
+
+    this.setState({
+      image: newState.image,
+      showSearchImages: newState.showSearchImages
+    })
+  }
+
   render() {
     return (
     <div className="App">
@@ -125,7 +136,7 @@ class App extends Component {
           value={{image: this.state.image,
                   implementFilter: this.implementFilter}} >
 
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults}/>
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults} updateImage={this.updateImage}/>
 
         </AuthContext.Provider>
         <Footer />

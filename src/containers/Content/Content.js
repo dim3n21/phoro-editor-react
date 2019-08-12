@@ -7,7 +7,7 @@ import FilterList from './FilterList/FilterList';
 
 const { Search } = Input;
 
-const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image, onReset, onSearch, showSearchImages, searchResults}) => {
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image, onReset, onSearch, showSearchImages, searchResults, updateImage}) => {
 
       const inputImage = (
             <div>
@@ -16,6 +16,17 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                   </Filter>
                   <FilterList image={image}/>
             </div> )
+
+      const searchedImages = (
+            searchResults.map( result => {
+                  console.log(result.urls.regular)
+                   return (
+                         <Col span={8} key={result.id} onClick={() => updateImage(result.urls.regular)}>
+                               <Image src={result.urls.regular} type='' />
+                         </Col>
+                         )
+                   })
+      )
 
       return (
             <div>
@@ -104,15 +115,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
 
                         <Col lg={18} md={12} sm={24}>
                               <Row>
-                                    {searchResults.map( result => {
-                                         console.log(result.urls.regular)
-                                          return (
-                                                <Col span={8} key={result.id}>
-                                                      <Image src={result.urls.regular} type='' />
-                                                </Col>
-                                                )
-                                          })
-                                    }
+                                    {showSearchImages ? searchedImages : inputImage}
                               </Row>
 
                         </Col>
