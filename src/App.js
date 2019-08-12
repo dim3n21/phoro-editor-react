@@ -87,8 +87,12 @@ class App extends Component {
     return (
     <div className="App">
         <Header title="photo editor" />
-        <AuthContext.Provider value={{image: this.state.image}} >
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} implementFilter={this.implementFilter}/>
+        <AuthContext.Provider
+          value={{image: this.state.image,
+                  implementFilter: this.implementFilter}} >
+
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset}/>
+
         </AuthContext.Provider>
         <Footer />
     </div>

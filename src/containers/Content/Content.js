@@ -5,7 +5,7 @@ import Image from './Image/Image';
 import Filter from './Filter/Filter';
 import FilterList from './FilterList/FilterList';
 
-const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink, onReset, implementFilter}) => {
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset}) => {
       
       return (
             <div>
@@ -85,8 +85,7 @@ const Content = ({settings, image, onChange, onAfterChange, onMouse, submitLink,
                               <Filter settings={settings} implementFilter={()=>{}}>
                                     <Image type="hero" />
                               </Filter>
-                              <FilterList image={image} implementFilter={implementFilter} />
-                              
+                              <FilterList/>
                         </Col>
                   </Row>   
             </div>
