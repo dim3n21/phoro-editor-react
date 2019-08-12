@@ -101,7 +101,7 @@ class App extends Component {
       showSearchImages: newState.showSearchImages
     })
 
-    axios.get(`https://api.unsplash.com/search/photos?page=1&query=${searchValue}&client_id=080c38213e39dad3d8ad53aca3dffe7f13ad187a26e43ff5a00c74cd3b187519`)
+    axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=15&query=${searchValue}&client_id=080c38213e39dad3d8ad53aca3dffe7f13ad187a26e43ff5a00c74cd3b187519`)
       .then(response => {
           console.log(response.data.results)
           let newState = {...this.state}
@@ -125,7 +125,7 @@ class App extends Component {
           value={{image: this.state.image,
                   implementFilter: this.implementFilter}} >
 
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages}/>
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults}/>
 
         </AuthContext.Provider>
         <Footer />

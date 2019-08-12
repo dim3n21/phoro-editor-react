@@ -7,7 +7,15 @@ import FilterList from './FilterList/FilterList';
 
 const { Search } = Input;
 
-const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset, onSearch, showSearchImages}) => {
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image, onReset, onSearch, showSearchImages, searchResults}) => {
+
+      const inputImage = (
+            <div>
+                  <Filter settings={settings} implementFilter={()=>{}}>
+                        <Image src={image} type="hero" />
+                  </Filter>
+                  <FilterList image={image}/>
+            </div> )
 
       return (
             <div>
@@ -95,12 +103,18 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onRese
                         </Col>
 
                         <Col lg={18} md={12} sm={24}>
-                              {showSearchImages ? '' : <div>
-                                    <Filter settings={settings} implementFilter={()=>{}}>
-                                          <Image type="hero" />
-                                    </Filter>
-                                    <FilterList/>
-                              </div>}
+                              <Row>
+                                    {searchResults.map( result => {
+                                         console.log(result.urls.regular)
+                                          return (
+                                                <Col span={8} key={result.id}>
+                                                      <Image src={result.urls.regular} type='' />
+                                                </Col>
+                                                )
+                                          })
+                                    }
+                              </Row>
+
                         </Col>
                   </Row>   
             </div>

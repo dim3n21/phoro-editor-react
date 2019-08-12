@@ -5,7 +5,7 @@ const Image = ({src, type}) => {
      
       return (
             <AuthContext.Consumer>
-                  {(context) => <div className={type === "hero" ? "image_hero" : "image_filter"} style={{backgroundImage: `url(${context.image})`}}></div>}
+                  {(context) => <div className={type === "hero" ? "image_hero" : "image_filter"} style={{backgroundImage: `url(${src})`}}></div>}
             </AuthContext.Consumer>
             
       );
