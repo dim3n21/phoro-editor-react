@@ -5,8 +5,10 @@ import Image from './Image/Image';
 import Filter from './Filter/Filter';
 import FilterList from './FilterList/FilterList';
 
-const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset}) => {
-      
+const { Search } = Input;
+
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset, onSearch}) => {
+
       return (
             <div>
                   <Row>
@@ -77,6 +79,16 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onRese
                                                 allowClear
                                                 onPressEnter={(e) => {submitLink(e)}}
                                                 />
+                                    </Col>
+                              </Row>
+                              <Row>
+                                    <Col span={24} style={{marginTop: '2rem'}}>
+                                    <Search
+                                          placeholder=""
+                                          enterButton="Search Image"
+                                          size="large"
+                                          onSearch={ (value, event) => onSearch(value, event) }
+                                    />
                                     </Col>
                               </Row>
                         </Col>
