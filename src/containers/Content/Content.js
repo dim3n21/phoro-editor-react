@@ -7,7 +7,7 @@ import FilterList from './FilterList/FilterList';
 
 const { Search } = Input;
 
-const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset, onSearch}) => {
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onReset, onSearch, showSearchImages}) => {
 
       return (
             <div>
@@ -86,6 +86,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onRese
                                     <Search
                                           placeholder=""
                                           enterButton="Search Image"
+                                          allowClear
                                           size="large"
                                           onSearch={ (value, event) => onSearch(value, event) }
                                     />
@@ -94,10 +95,12 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, onRese
                         </Col>
 
                         <Col lg={18} md={12} sm={24}>
-                              <Filter settings={settings} implementFilter={()=>{}}>
-                                    <Image type="hero" />
-                              </Filter>
-                              <FilterList/>
+                              {showSearchImages ? '' : <div>
+                                    <Filter settings={settings} implementFilter={()=>{}}>
+                                          <Image type="hero" />
+                                    </Filter>
+                                    <FilterList/>
+                              </div>}
                         </Col>
                   </Row>   
             </div>

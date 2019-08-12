@@ -12,6 +12,7 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
+    showSearchImages: false,
     image: 'https://images.unsplash.com/flagged/photo-1565241758499-3bf9d63d9094?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     searchValue: '',
     searchResults: [],
@@ -54,9 +55,11 @@ class App extends Component {
     const imgLink = e.target.value;
     let newState = {...this.state};
     newState.image = imgLink;
+    newState.showSearchImages = false;
 
     this.setState({
-      ...newState
+      image:  newState.image,
+      showSearchImages: newState.showSearchImages
     })
   }
 
@@ -91,9 +94,11 @@ class App extends Component {
 
     let newState = {...this.state}
     newState.searchValue = searchValue;
+    newState.showSearchImages = true;
 
     this.setState({
-      searchValue: newState.searchValue
+      searchValue: newState.searchValue,
+      showSearchImages: newState.showSearchImages
     })
 
     axios.get(`https://api.unsplash.com/search/photos?page=1&query=${searchValue}&client_id=080c38213e39dad3d8ad53aca3dffe7f13ad187a26e43ff5a00c74cd3b187519`)
@@ -108,6 +113,10 @@ class App extends Component {
         })
   }
 
+  inputClear = (val) => {
+    val.clear()
+  }
+
   render() {
     return (
     <div className="App">
@@ -116,7 +125,7 @@ class App extends Component {
           value={{image: this.state.image,
                   implementFilter: this.implementFilter}} >
 
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} onSearch={this.onSearch}/>
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages}/>
 
         </AuthContext.Provider>
         <Footer />
