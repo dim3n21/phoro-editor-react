@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  background-color: #5e5e5e;
 }
 
 .header {
@@ -48,6 +49,20 @@
   background-position: center;
 }
 
+.filter {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  filter: blur(0);
+  transform: scale(1)
+}
+
+.filter:hover {
+  filter: blur(1px);
+  transform: scale(1.01)
+}
+
 .footer {
   display: block;
   background-color: #5e5e5e;
@@ -57,11 +72,12 @@
 .footer_icon {
   display: inline-block;
   width: 2rem;
-  margin-left: 1rem;
+  margin: 1rem 0 0 1rem;
   color: #fa1c1f;
 }
 
 .footer_text {
   font-size: 1rem;
+  margin-top: 1rem;
   color: #fa1c1f;
 }

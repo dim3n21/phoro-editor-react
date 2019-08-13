@@ -4,7 +4,7 @@ import {Row, Col} from 'antd';
 const Footer = () => {
       return (
             <div className="footer">
-                  <Row>
+                  <Row >
                         <Col span={4}>
                               <a href="https://github.com/dim3n21" target="_blank">
                                     <img src={process.env.PUBLIC_URL + './assets/icons/github-logo.png'} alt="github" class="footer_icon"/>

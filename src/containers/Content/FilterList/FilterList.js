@@ -8,27 +8,38 @@ const FilterList = ({image}) => {
       return (
             <Row>
                   <Col span={6}>
-                        <Filter
-                              settings={{ contrast: 1, hue: 1, brightness: 85, saturate: 253, sepia: 20, blur: 1 }}>
-                              <Image src={image} type="filter"/>
-                        </Filter>
+                        
+                              <Filter 
+                                    settings={{ contrast: 1, hue: 1, brightness: 85, saturate: 253, sepia: 20, blur: 1 }}>
+                                          <div className="filter">
+                                                <Image src={image} type="filter"/>
+                                          </div>
+                              </Filter>
+                        
                   </Col>
                   <Col span={6}>
+                        
                         <Filter
                               settings={{ contrast: 1, hue: 1, brightness: 90, saturate: 1, sepia: 1, blur: 1 }}>
-                              <Image src={image} type="filter"/>
+                                    <div className="filter">
+                                          <Image src={image} type="filter"/>
+                                    </div>
                         </Filter>
                   </Col>
                   <Col span={6}>
                         <Filter
                               settings={{ contrast: 1, hue: 200, brightness: 100, saturate: 300, sepia: 40, blur: 1 }}>
-                              <Image src={image} type="filter"/>
+                                    <div className="filter">
+                                          <Image src={image} type="filter"/>
+                                    </div>
                         </Filter>
                   </Col>
                   <Col span={6}>
                         <Filter
                               settings={{ contrast: 1, hue: 60, brightness: 65, saturate: 100, sepia: 20, blur: 1 }}>
-                              <Image src={image} type="filter"/>
+                                    <div className="filter">
+                                          <Image src={image} type="filter"/>
+                                    </div>
                         </Filter></Col>
             </Row>
       );

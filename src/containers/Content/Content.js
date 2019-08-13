@@ -14,7 +14,10 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                   <Filter settings={settings} implementFilter={()=>{}}>
                         <Image src={image} type="hero" />
                   </Filter>
-                  <FilterList image={image}/>
+                  <div style={{marginTop: '0.3rem;'}}>
+                        <FilterList image={image}/>
+                  </div>
+                  
             </div> )
 
       const searchedImages = (
@@ -31,7 +34,31 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
       return (
             <div>
                   <Row>
-                        <Col className='settings' lg={6} md={12} sm={24}>
+                        <Col className='settings' lg={6} md={12} sm={24} order={1}>
+                              <Row>
+                                    <Col span={24}>
+                                         <Search
+                                                placeholder="link to image"
+                                                enterButton="Upload Image"
+                                                size="large"
+                                                allowClear
+                                                onSearch={(value, event) => {submitLink(value, event)}}
+                                                />
+                                    </Col>
+                              </Row>
+                              <Row>
+                                    <Col span={24} style={{ marginTop: '2rem',
+                                                            marginBottom: '2rem' }}>
+                                    <Search
+                                          placeholder="search image"
+                                          enterButton="Search Image"
+                                          allowClear
+                                          size="large"
+                                          onSearch={ (value, event) => onSearch(value, event) }
+                                    />
+                                    </Col>
+                              </Row>
+                              <Row>
                               <Range
                                     curVal={settings.contrast}
                                     onChange={onChange}
@@ -81,43 +108,30 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                                     onMouse={onMouse}
                                     min={1}
                                     max={50} />
-
-                              <Row>
-                                    <Col lg={12} sm={24}>
-                                          <Button onClick={onReset}>&nbsp;Reset&nbsp;</Button>
-                                    </Col>
-                                    <Col lg={12} sm={24}>
-                                          <Button>Download</Button>
-                                    </Col>
                               </Row>
 
                               <Row>
-                                    <Col span={24} style={{marginTop: '2rem'}}>
-                                         <Input
-                                                placeholder="link to image"
-                                                allowClear
-                                                onPressEnter={(e) => {submitLink(e)}}
-                                                />
-                                    </Col>
-                              </Row>
-                              <Row>
-                                    <Col span={24} style={{marginTop: '2rem'}}>
-                                    <Search
-                                          placeholder=""
-                                          enterButton="Search Image"
-                                          allowClear
-                                          size="large"
-                                          onSearch={ (value, event) => onSearch(value, event) }
-                                    />
-                                    </Col>
+                                    
+                                          <Col lg={24} sm={24}>
+                                                <div>
+                                                      <Button onClick={onReset}>&nbsp;Reset&nbsp;</Button>  
+                                                </div>
+                                                
+                                          </Col>
+                                   
+                                    
+                                    {/* <Col lg={12} sm={24}>
+                                          <div style={{marginBottom: '0.7rem'}}>
+                                                <Button>Download</Button>
+                                          </div>
+                                    </Col> */}
                               </Row>
                         </Col>
 
-                        <Col lg={18} md={12} sm={24}>
+                        <Col lg={18} md={12} sm={24} order={2}>
                               <Row>
                                     {showSearchImages ? searchedImages : inputImage}
                               </Row>
-
                         </Col>
                   </Row>   
             </div>

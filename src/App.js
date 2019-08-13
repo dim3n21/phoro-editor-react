@@ -49,10 +49,10 @@ class App extends Component {
     })
   }
 
-  submitLink = (e) => {
-    e.preventDefault();
-    console.log(e.target.value)
-    const imgLink = e.target.value;
+  submitLink = (value, e) => {
+    // e.preventDefault();
+    console.log(value)
+    const imgLink = value;
     let newState = {...this.state};
     newState.image = imgLink;
     newState.showSearchImages = false;
