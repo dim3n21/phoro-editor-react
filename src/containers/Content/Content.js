@@ -16,7 +16,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                   <Filter settings={settings} implementFilter={()=>{}}>
                         <Image src={image} type="hero" />
                   </Filter>
-                  <div style={{marginTop: '0.3rem;'}}>
+                  <div style={{marginTop: '0.3rem'}}>
                         <FilterList image={image}/>
                   </div>
                   
@@ -46,7 +46,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
       return (
             <div>
                   <Row>
-                        <Col className='settings' lg={6} md={12} sm={24} order={1}>
+                        <Col className='settings' lg={6} md={24} sm={24} order={1}>
                               <Row>
                                     <Col span={24}>
                                          <Search
@@ -139,7 +139,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                               </Row>
                         </Col>
 
-                        <Col lg={18} md={12} sm={24} order={2}>
+                        <Col lg={18} md={24} sm={24} order={2}>
                               <Row>
                                     {display}                              
                               </Row>

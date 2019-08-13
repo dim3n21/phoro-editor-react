@@ -35,7 +35,13 @@
   height: 74vh;
   background-size: cover;
   background-position: center;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  animation: opactityChange 1s ease-out
 }
+
 
 .input {
   margin: 2rem 0 1rem 0;
@@ -47,7 +53,9 @@
   height: 18vh !important;
   background-size: cover;
   background-position: center;
+  animation: opactityChange 1s ease-out
 }
+
 
 .filter {
   -webkit-transition: all 0.2s ease-in;
@@ -55,12 +63,12 @@
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   filter: blur(0);
-  transform: scale(1)
+  transform: scale(1);
 }
 
 .filter:hover {
   filter: blur(1px);
-  transform: scale(1.01)
+  transform: scale(1.02);
 }
 
 .footer {
@@ -89,4 +97,22 @@
   margin-bottom: 20px;
   padding: 30px 50px;
   margin: 20px 0;
+}
+
+@keyframes opactityChange {
+  0% {
+      opacity: 0;
+
+  }
+
+  50% {
+      opacity: 100%;
+
+
+  }
+
+  100% {
+      opacity: 100%;
+
+  }
 }

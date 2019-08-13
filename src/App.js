@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Lines } from 'react-preloaders';
 
 import './App.css';
 
@@ -89,7 +90,6 @@ class App extends Component {
   }
 
   onSearch = (searchValue, e) => {
-    console.log(e);
     let newState = {...this.state}
     newState.showSearchImages = true;
     newState.loadSpin = true;
@@ -108,8 +108,11 @@ class App extends Component {
             searchResults: newState.searchResults
           })
         })
-     
+    
+    newState.loadSpin = false;
+
     this.setState({
+      loadSpin: newState.loadSpin,
       showSearchImages: newState.showSearchImages
     })
   }
@@ -141,6 +144,7 @@ class App extends Component {
 
         </AuthContext.Provider>
         <Footer />
+        <Lines time={1000} background="blur" color={'#1890ff'} />
     </div>
     )
     
