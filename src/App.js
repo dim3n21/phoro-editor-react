@@ -13,8 +13,8 @@ class App extends Component {
 
   state = {
     showSearchImages: false,
+    loadSpin: false,
     image: 'https://images.unsplash.com/flagged/photo-1565241758499-3bf9d63d9094?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-    searchValue: '',
     searchResults: [],
     name: '',
     settings : {
@@ -89,16 +89,13 @@ class App extends Component {
   }
 
   onSearch = (searchValue, e) => {
-
     console.log(e);
-
     let newState = {...this.state}
-    newState.searchValue = searchValue;
     newState.showSearchImages = true;
+    newState.loadSpin = true;
 
     this.setState({
-      searchValue: newState.searchValue,
-      showSearchImages: newState.showSearchImages
+      loadSpin: newState.loadSpin
     })
 
     axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=15&query=${searchValue}&client_id=080c38213e39dad3d8ad53aca3dffe7f13ad187a26e43ff5a00c74cd3b187519`)
@@ -111,6 +108,10 @@ class App extends Component {
             searchResults: newState.searchResults
           })
         })
+     
+    this.setState({
+      showSearchImages: newState.showSearchImages
+    })
   }
 
   inputClear = (val) => {
@@ -136,7 +137,7 @@ class App extends Component {
           value={{image: this.state.image,
                   implementFilter: this.implementFilter}} >
 
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults} updateImage={this.updateImage}/>
+          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults} updateImage={this.updateImage} loadSpin={this.loadSpin}/>
 
         </AuthContext.Provider>
         <Footer />

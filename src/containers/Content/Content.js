@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Input, Button } from 'antd';
+import { Row, Col, Input, Button, Spin } from 'antd';
 import Range from './Range/Range';
 import Image from './Image/Image';
 import Filter from './Filter/Filter';
@@ -7,7 +7,9 @@ import FilterList from './FilterList/FilterList';
 
 const { Search } = Input;
 
-const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image, onReset, onSearch, showSearchImages, searchResults, updateImage}) => {
+const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image, onReset, onSearch, showSearchImages, searchResults, updateImage, loadSpin}) => {
+
+      let display;
 
       const inputImage = (
             <div>
@@ -30,6 +32,16 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                          )
                    })
       )
+
+      if (loadSpin) {
+            display =  <div className="spinner">
+                              <Spin />
+                        </div>
+      } else if (showSearchImages) {
+             display = searchedImages
+            } else {
+            display = inputImage
+      }
 
       return (
             <div>
@@ -112,13 +124,12 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
 
                               <Row>
                                     
-                                          <Col lg={24} sm={24}>
-                                                <div>
-                                                      <Button onClick={onReset}>&nbsp;Reset&nbsp;</Button>  
-                                                </div>
-                                                
-                                          </Col>
-                                   
+                                    <Col lg={24} sm={24}>
+                                          <div>
+                                                <Button onClick={onReset}>&nbsp;Reset&nbsp;</Button>  
+                                          </div>
+                                          
+                                    </Col>
                                     
                                     {/* <Col lg={12} sm={24}>
                                           <div style={{marginBottom: '0.7rem'}}>
@@ -130,7 +141,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
 
                         <Col lg={18} md={12} sm={24} order={2}>
                               <Row>
-                                    {showSearchImages ? searchedImages : inputImage}
+                                    {display}                              
                               </Row>
                         </Col>
                   </Row>   
