@@ -62,13 +62,15 @@
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  filter: blur(0);
+  /* filter: blur(0); */
   transform: scale(1);
+  filter: opacity(1)
 }
 
 .filter:hover {
-  filter: blur(1px);
-  transform: scale(1.02);
+  /*filter: blur(0.5px);*/
+  filter: opacity(0.9);
+  transform: scale(0.98);
 }
 
 .footer {
@@ -88,6 +90,7 @@
   font-size: 1rem;
   margin-top: 1rem;
   color: #fa1c1f;
+  backface-visibility: hidden;
 }
 
 .spinner {
