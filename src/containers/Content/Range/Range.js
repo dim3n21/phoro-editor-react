@@ -6,7 +6,7 @@ const Range = ({curVal, onChange, name, onAfterChange, onMouse, min, max}) => {
       return (
             <div className="setting" onMouseOver={() => onMouse(name)}>
                    <Row>
-                         <Col span={12} align="right" style={{paddingRight: "1rem"}}>
+                         <Col span={18} align="left" style={{paddingRight: "1rem"}}>
                               <p className="setting_name">{name}</p>
                          </Col>
                          <Col span={6} align="left">

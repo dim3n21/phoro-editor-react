@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Lines } from 'react-preloaders';
+
 
 import './App.css';
-
 import AuthContext from './context/auth-context';
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
 import Footer from './containers/Footer/Footer';
 import axios from 'axios';
+
 
 
 class App extends Component {
@@ -135,16 +135,21 @@ class App extends Component {
   render() {
     return (
     <div className="App">
-        <Header title="photo editor" />
-        <AuthContext.Provider
-          value={{image: this.state.image,
-                  implementFilter: this.implementFilter}} >
-
-          <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults} updateImage={this.updateImage} loadSpin={this.loadSpin}/>
-
-        </AuthContext.Provider>
-        <Footer />
-        <Lines time={1000} background="blur" color={'#1890ff'} />
+    <Header title="photo editor" />
+    <AuthContext.Provider
+              value={{image: this.state.image,
+                      implementFilter: this.implementFilter}} >
+    <Content settings={this.state.settings} image={this.state.image} onChange={this.onChange} onAfterChange={this.onAfterChange} onMouse={this.onMouse} submitLink={this.submitLink} img={this.state.image} onReset={this.onReset} onSearch={this.onSearch} showSearchImages={this.state.showSearchImages} searchResults={this.state.searchResults} updateImage={this.updateImage} loadSpin={this.loadSpin}/>
+    </AuthContext.Provider>
+          
+    <Footer />
+          
+       
+        
+        
+          
+       
+       
     </div>
     )
     

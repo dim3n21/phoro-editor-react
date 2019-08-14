@@ -46,7 +46,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
       return (
             <div>
                   <Row>
-                        <Col className='settings' lg={6} md={24} sm={24} order={1}>
+                        <Col className='settings' lg={6} md={24} sm={24}>
                               <Row>
                                     <Col span={24}>
                                          <Search
@@ -71,57 +71,70 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                                     </Col>
                               </Row>
                               <Row>
-                              <Range
-                                    curVal={settings.contrast}
-                                    onChange={onChange}
-                                    name={'contrast'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={5} /> 
-                              <Range 
-                                    curVal={settings.hue}
-                                    onChange={onChange}
-                                    name={'hue'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={360} />
-                              <Range 
-                                    curVal={settings.brightness}
-                                    onChange={onChange}
-                                    name={'brightness'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={200} />
-                              <Range 
-                                    curVal={settings.saturate}
-                                    onChange={onChange}
-                                    name={'saturate'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={300} />
-                              
-                              <Range 
-                                    curVal={settings.sepia}
-                                    onChange={onChange}
-                                    name={'sepia'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={100} />
-                              <Range 
-                                    curVal={settings.blur}
-                                    onChange={onChange}
-                                    name={'blur'}
-                                    onAfterChange={onAfterChange}
-                                    onMouse={onMouse}
-                                    min={1}
-                                    max={50} />
-                              </Row>
+                                    <Col span={24}>
+                                          <Range
+                                                curVal={settings.contrast}
+                                                onChange={onChange}
+                                                name={'contrast'}
+                                                onAfterChange={onAfterChange}
+                                                onMouse={onMouse}
+                                                min={1}
+                                                max={5} /> 
+                                    </Col>
+                                    <Col span={24}>
+                                          <Range 
+                                                curVal={settings.hue}
+                                                onChange={onChange}
+                                                name={'hue'}
+                                                onAfterChange={onAfterChange}
+                                                onMouse={onMouse}
+                                                min={1}
+                                                max={360} />
+                                    </Col>
 
+                                    <Col span={24}>      
+                                    <Range 
+                                          curVal={settings.brightness}
+                                          onChange={onChange}
+                                          name={'brightness'}
+                                          onAfterChange={onAfterChange}
+                                          onMouse={onMouse}
+                                          min={1}
+                                          max={200} />
+                                    </Col>
+                                    
+                                    <Col span={24}>
+                                          <Range 
+                                                curVal={settings.saturate}
+                                                onChange={onChange}
+                                                name={'saturate'}
+                                                onAfterChange={onAfterChange}
+                                                onMouse={onMouse}
+                                                min={1}
+                                                max={300} />
+                                    </Col>
+                                    
+                                    <Col span={24}>
+                                          <Range 
+                                                curVal={settings.sepia}
+                                                onChange={onChange}
+                                                name={'sepia'}
+                                                onAfterChange={onAfterChange}
+                                                onMouse={onMouse}
+                                                min={1}
+                                                max={100} />
+                                    </Col>
+                                    <Col span={24}>  
+                                          <Range 
+                                                curVal={settings.blur}
+                                                onChange={onChange}
+                                                name={'blur'}
+                                                onAfterChange={onAfterChange}
+                                                onMouse={onMouse}
+                                                min={1}
+                                                max={50} />
+                                    </Col>    
+                              </Row>
                               <Row>
                                     
                                     <Col lg={24} sm={24}>
@@ -138,8 +151,7 @@ const Content = ({settings, onChange, onAfterChange, onMouse, submitLink, image,
                                     </Col> */}
                               </Row>
                         </Col>
-
-                        <Col lg={18} md={24} sm={24} order={2}>
+                        <Col lg={18} md={24} sm={24}>
                               <Row>
                                     {display}                              
                               </Row>
