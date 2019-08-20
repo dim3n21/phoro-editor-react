@@ -9,4 +9,5 @@ For design and UI - [ANT Design](https://ant.design). HTTP client - [Axios](http
  - Use seatted up filters.
  - Adjust filter setting with sliders.
  
+ 
  ![](photo-editor-react-example.gif)
